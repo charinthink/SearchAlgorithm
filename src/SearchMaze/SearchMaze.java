@@ -36,7 +36,7 @@ public class SearchMaze {
         int rowDist = positionDist[0];
         int colDists = positionDist[1];
 
-        // create an empty queue
+        // create queue
         Queue<Node> q = new ArrayDeque<>();
 
         // mark the source cell as visited and enqueue the source node
@@ -51,7 +51,6 @@ public class SearchMaze {
             // dequeue front node and process it
             Node node = q.poll();
 
-            // `(i, j)` represents a current cell, and `dist` stores its
             // minimum distance from the source
             rowStart = node.x;
             colStart = node.y;
@@ -82,10 +81,4 @@ public class SearchMaze {
             System.out.print("Destination can't be reached from a given source");
         }
     }
-
-//    public static void main(String[] args) {
-//        SearchMaze searchMaze = new SearchMaze();
-//        searchMaze.BFS(MAT, SRC, DIST);
-//    }
-
 }
