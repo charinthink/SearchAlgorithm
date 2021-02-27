@@ -1,14 +1,10 @@
 package SearchTree;
 
-import java.util.Arrays;
-
 import static SearchTree.ConstantValue.COUNT;
-import static SearchTree.ConstantValue.VALUES;
 
 public class SearchTree {
     private Node root;
 
-//    public Node ROOT;
     public SearchTree() {
         this.root = null;
     }
@@ -53,20 +49,4 @@ public class SearchTree {
         // Process left child
         print2DUtil(root.left, space);
     }
-
-//    public static void main(String[] args) {
-//        SearchTree searchTree = new SearchTree();
-//
-//        /* Let us create following BST
-//              50
-//           /     \
-//          19      70
-//         /        / \
-//        30       60 80
-//         /  \
-//       20   40 */
-//
-//        Arrays.stream(VALUES).forEach(searchTree::insert);
-//        searchTree.print();
-//    }
 }
