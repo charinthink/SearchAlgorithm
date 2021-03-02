@@ -5,7 +5,8 @@ import java.util.Queue;
 
 import static SearchMaze.ConstantValue.*;
 
-public class SearchMaze {
+public class BFSSearchMaze {
+
 
     private int[] findPosition(int[][] mat, int value) {
         for (int i = 0; i < M; i++) {
@@ -15,7 +16,6 @@ public class SearchMaze {
                 }
             }
         }
-
         return new int[]{-1};
     }
 
@@ -23,6 +23,8 @@ public class SearchMaze {
         return (row >= 0) && (row < M) && (col >= 0) && (col < N)
                 && mat[row][col] != 1 && !visited[row][col];
     }
+
+
 
     public void BFS(int[][] mat, int source, int dists) {
         // construct a matrix to keep track of visited cells
@@ -65,11 +67,13 @@ public class SearchMaze {
             // check for all four possible movements from the current cell
             // and enqueue each valid movement
             for (int k = 0; k < 4; k++) {
-                if (isValid(mat, visited, rowStart + ROW[k], colStart + COL[k])) {
-                    // mark next cell as visited and enqueue it
-                    visited[rowStart + ROW[k]][colStart + COL[k]] = true;
-                    q.add(new Node(rowStart + ROW[k], colStart + COL[k], dist + 1));
+                int sumRowStart = rowStart + ROW[k];
+                int sumColStart = colStart + COL[k];
 
+                if (isValid(mat, visited, sumRowStart, sumColStart)) {
+                    // mark next cell as visited and enqueue it
+                    visited[sumRowStart][sumColStart] = true;
+                    q.add(new Node(sumRowStart, sumColStart, dist + 1));
                 }
             }
         }
@@ -81,4 +85,12 @@ public class SearchMaze {
             System.out.print("Destination can't be reached from a given source");
         }
     }
+
+//    public static void main(String[] args) {
+//        System.out.println("**************** BFS Search for Maze ****************");
+//        BFSSearchMaze BFSSearchMaze = new BFSSearchMaze();
+//        BFSSearchMaze.BFS(MAT, SRC, DIST);
+//
+//
+//    }
 }
