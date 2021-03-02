@@ -1,4 +1,4 @@
-package SearchTree;
+package Tree;
 
 public class Node {
     public int value;

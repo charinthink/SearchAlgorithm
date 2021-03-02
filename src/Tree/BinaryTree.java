@@ -1,11 +1,11 @@
-package SearchTree;
+package Tree;
 
-import static SearchTree.ConstantValue.COUNT;
+import static Tree.ConstantValue.COUNT;
 
-public class SearchTree {
+public class BinaryTree {
     private Node root;
 
-    public SearchTree() {
+    public BinaryTree() {
         this.root = null;
     }
 
@@ -26,7 +26,7 @@ public class SearchTree {
         return root;
     }
 
-    public void print(){
+    public void print() {
         print2DUtil(root, 0);
     }
 
@@ -38,15 +38,22 @@ public class SearchTree {
         space += COUNT;
 
         // Process right child
+        for (int i = COUNT; i < space; i++)
+            System.out.print(" ");
+        System.out.print(root.value );
+        print2DUtil(root.left, space);
+        System.out.println();
         print2DUtil(root.right, space);
 
         // Print current node after space
         // count
-        for (int i = COUNT; i < space; i++)
-            System.out.print(" ");
-        System.out.print(root.value + "\n");
+//        for (int i = COUNT; i < space; i++)
+//            System.out.print(" ");
+//        for (int i = space; i > COUNT; i--)
+//            System.out.print(" ");
+//        System.out.print(root.value + "\n");
 
         // Process left child
-        print2DUtil(root.left, space);
+
     }
 }
